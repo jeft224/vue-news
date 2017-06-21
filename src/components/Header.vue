@@ -4,7 +4,7 @@
       <i class="icon iconfont icon-caidan" @click="ShowMenu()"></i>
       <i class="icon iconfont icon-fanhuijiantouxiangqingye" v-if="false"></i>
     </div>
-    <router-link :to="{name:'Hello'}" class="home-img">
+    <router-link to="\hello" class="home-img">
       <img src="../assets/logo.d413616.png" alt="">
     </router-link>
     <div class="icon-search">
