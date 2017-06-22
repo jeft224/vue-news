@@ -32,16 +32,18 @@
   }
   @keyframes spinner {
     0%{
-      transform: rotate(360deg);
-      opacity: 1.0;
-    }
-    50%{
-      transform: rotate(180deg);
+      transform: rotate(0deg);
       opacity: 0.5;
     }
+
+    50%{
+      transform: rotate(180deg);
+      opacity: 0.75;
+    }
+
     100%{
-      transform: rotate(0deg);
-      opacity: 0;
+      transform: rotate(360deg);
+      opacity: 1;
     }
   }
 </style>
