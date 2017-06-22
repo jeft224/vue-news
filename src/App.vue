@@ -4,6 +4,7 @@
     <VHeader v-if = "headerShow"></VHeader>
     <VSearch v-if = "!headerShow"></VSearch>
     <VNav></VNav>
+    <Loading></Loading>
     <router-view></router-view>
   </div>
 </template>
@@ -12,13 +13,15 @@
   import VHeader from './components/Header'
   import VSearch from './components/Search'
   import VNav from './components/Nav'
+  import Loading from './components/Loading'
   import {mapGetters} from 'vuex'
 export default {
   name: 'app',
   components:{
       VHeader,
       VSearch,
-      VNav
+      VNav,
+      Loading
   },
   computed: {
     ...mapGetters({
