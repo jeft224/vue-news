@@ -3,3 +3,5 @@
  */
 
 export const  COM_HEADER_SHOW = 'COM_HEADER_SHOW';
+export const  COM_LOADING_STATUS = 'COM_LOADING_STATUS';
+export const  COM_GOTOP_STATUS = 'COM_GOTOP_STATUS';

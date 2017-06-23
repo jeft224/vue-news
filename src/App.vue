@@ -5,6 +5,7 @@
     <VSearch v-if = "!headerShow"></VSearch>
     <VNav></VNav>
     <Loading></Loading>
+    <GoTop></GoTop>
     <router-view></router-view>
   </div>
 </template>
@@ -14,6 +15,7 @@
   import VSearch from './components/Search'
   import VNav from './components/Nav'
   import Loading from './components/Loading'
+  import GoTop from './components/GoTop'
   import {mapGetters} from 'vuex'
 export default {
   name: 'app',
@@ -21,7 +23,8 @@ export default {
       VHeader,
       VSearch,
       VNav,
-      Loading
+      Loading,
+      GoTop
   },
   computed: {
     ...mapGetters({
