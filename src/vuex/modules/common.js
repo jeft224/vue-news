@@ -7,7 +7,8 @@ import * as types from '../mutation-type'
 const state = {
   headerShow:true,
   isGoTop:true,
-  isLoading:true
+  isLoading:true,
+  leftNavStatus:false
 }
 
 
@@ -20,10 +21,14 @@ const actions = {
   },
   setGoTopStatus({commit},status){
     commit(types.COM_GOTOP_STATUS,status)
+  },
+  setMenuSlide({commit},status){
+    commit(types.COM_NAV_STATUS,status)
   }
 }
 const getters = {
-  getHeaderShow: state => state.headerShow
+  getHeaderShow: state => state.headerShow,
+  getMenuSlideStatus:state => state.leftNavStatus
 }
 
 const mutations = {
@@ -35,6 +40,9 @@ const mutations = {
   },
   [types.COM_GOTOP_STATUS](state,status){
     state.isGoTop = status;
+  },
+  [types.COM_NAV_STATUS](state,status){
+    state.leftNavStatus =status;
   }
 }
 

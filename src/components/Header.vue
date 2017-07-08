@@ -10,38 +10,42 @@
     <div class="icon-search">
       <i class="icon iconfont icon-sousuo1" @click="ShowSearch()"></i>
     </div>
-
-  <!--  <div class="search">
-
-    </div>
-    <div class="menuAside">
-
-    </div>-->
-    <!--<menu-slide :show="leftNavStatus" @hideMenuSlide="hideMenuSlide"></menu-slide>-->
+    <menu-slide :show="leftNavStatus" @hideMenuSlide="hideMenuSlide"></menu-slide>
   </div>
 </template>
 
 <script>
   import MenuSlide from './MenuSlide'
-  import {mapActions} from 'vuex'
+  import {mapActions,mapGetters} from 'vuex'
   export default {
     name:'header',
     data(){
       return {
-        MenuSlide
+
       }
     },
-
+    computed:{
+      ...mapGetters({
+        leftNavStatus:'getMenuSlideStatus'
+      })
+    },
     components:{
-
+      MenuSlide
     },
     methods:{
-      ...mapActions({setHeaderShow:'setHeaderShow'}),
+//      ...mapActions({setHeaderShow:'setHeaderShow'},{setMenuSlide:'setMenuSlide'}),
+      ...mapActions(['setHeaderShow','setMenuSlide']),
+      /*显示搜索页面*/
       ShowSearch(){
         this.setHeaderShow(false);
       },
+      /*显示左侧菜单*/
       ShowMenu(){
-
+        this.setMenuSlide(true);
+      },
+      /*隐藏左侧菜单*/
+      hideMenuSlide(){
+        this.setMenuSlide(false);
       }
     }
   }
