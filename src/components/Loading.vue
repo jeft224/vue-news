@@ -19,6 +19,7 @@
   .loading {
     margin-top:0.266525rem;
     position: relative;
+    width: 100%;
   }
   .loading  span {
     position: absolute;
@@ -27,8 +28,12 @@
     border-radius: 999px;
     width:0.8rem;
     height: 0.8rem;
-    left: 4.5rem;
+    /*left: 4.5rem;*/
     animation: spinner 0.8s infinite linear;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
   }
   @keyframes spinner {
     0%{

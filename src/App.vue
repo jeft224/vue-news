@@ -6,6 +6,7 @@
     <VNav></VNav>
     <Loading></Loading>
     <GoTop></GoTop>
+    <NewsList></NewsList>
     <router-view></router-view>
   </div>
 </template>
@@ -16,6 +17,7 @@
   import VNav from './components/Nav'
   import Loading from './components/Loading'
   import GoTop from './components/GoTop'
+  import NewsList from './components/NewsList'
   import {mapGetters} from 'vuex'
 export default {
   name: 'app',
@@ -24,7 +26,8 @@ export default {
       VSearch,
       VNav,
       Loading,
-      GoTop
+      GoTop,
+      NewsList
   },
   computed: {
     ...mapGetters({
