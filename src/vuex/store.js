@@ -4,13 +4,15 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import common from './modules/common'
+import newlist from './modules/newlist'
 
 Vue.use(Vuex);
 
 
 const store = new Vuex.Store({
     modules:{
-      common
+      common,
+      newlist
     }
 })
 

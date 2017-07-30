@@ -7,7 +7,7 @@ import * as types from '../mutation-type'
 const state = {
   headerShow:true,
   isGoTop:true,
-  isLoading:true,
+  isLoading:false,
   leftNavStatus:false
 }
 
@@ -28,7 +28,8 @@ const actions = {
 }
 const getters = {
   getHeaderShow: state => state.headerShow,
-  getMenuSlideStatus:state => state.leftNavStatus
+  getMenuSlideStatus:state => state.leftNavStatus,
+  loading: state => state.isLoading
 }
 
 const mutations = {
@@ -36,6 +37,7 @@ const mutations = {
     state.headerShow = status;
   },
   [types.COM_LOADING_STATUS](state,status){
+    console.log(status);
     state.isloading = status;
   },
   [types.COM_GOTOP_STATUS](state,status){

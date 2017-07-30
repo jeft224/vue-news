@@ -9,6 +9,7 @@ var opn = require('opn')
 var path = require('path')
 var express = require('express')
 var webpack = require('webpack')
+var http = require('http')
 var proxyMiddleware = require('http-proxy-middleware')
 var webpackConfig = require('./webpack.dev.conf')
 
@@ -21,7 +22,37 @@ var autoOpenBrowser = !!config.dev.autoOpenBrowser
 var proxyTable = config.dev.proxyTable
 
 var app = express()
+var server = http.createServer(app)
+//var io = require('socket.io')(server)
+//用于跨域请求
+var apiRoutes = express.Router()
 var compiler = webpack(webpackConfig)
+
+apiRoutes.get('/news/:type', (req, res) => {
+  let type = req.params.type;
+  function search(tab) {
+    return new Promise((resolve, reject) => {
+      let searchResult = '';
+      url = 'http://v.juhe.cn/toutiao/index?type='+ tab +'&key=836f59dcb6417be49dfa1fd2d9f50f77';
+      http.get(url, response => {
+        response.on('data', data => {
+          searchResult += data;
+        });
+        response.on('end', () => {
+          resolve(searchResult)
+        })
+      })
+    })
+  }
+  search(type)
+    .then(searchResult => {
+      res.json(JSON.parse(searchResult))
+    })
+});
+
+app.use('/api', apiRoutes);
+
+
 
 var devMiddleware = require('webpack-dev-middleware')(compiler, {
   publicPath: webpackConfig.output.publicPath,
@@ -79,7 +110,7 @@ devMiddleware.waitUntilValid(() => {
   _resolve()
 })
 
-var server = app.listen(port)
+server = app.listen(port)
 
 module.exports = {
   ready: readyPromise,

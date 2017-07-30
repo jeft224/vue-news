@@ -11,26 +11,42 @@
           <!--<div class="swiper-scrollbar"   slot="scrollbar"></div>-->
       </swiper>
     </div>
-    <section class="news">
-      <div v-if='requestStatus'>
-        <div v-for='news in newsDate' :id="news.id">
-          <a href="javascript: void(0)" class="new" :key='news.channelId'>
-            <img v-lazy='news.imageurls[0].url' :src="setNewSrc(news.imageurls[0].url)"/>
-            <div class="intro">
-              <h4>{{news.title}}</h4>
-              <p><span>{{news.source}}</span> | <span>{{news.pubDate}}</span></p>
+    <div class="loading-box" v-show="loading">
+      <loading></loading>
+    </div>
+    <section class="news" v-show="!loading">
+      <div v-for="(item, index) of newslist" :key="index" class="item">
+        <router-link :to="{name: 'News'}">
+          <div class="new" @click="details(item.url, item.author_name)">
+            <h2 class="title">{{item.title}}</h2>
+            <div class="pic">
+              <img v-lazy="item.thumbnail_pic_s" v-if="item.thumbnail_pic_s" class="photo" :src="item.thumbnail_pic_s" alt="">
+              <img v-lazy="item.thumbnail_pic_s02" v-if="item.thumbnail_pic_s02" class="photo" :src="item.thumbnail_pic_s02" alt="">
+              <img v-lazy="item.thumbnail_pic_s03" v-if="item.thumbnail_pic_s03" class="photo" :src="item.thumbnail_pic_s03" alt="">
             </div>
-          </a>
-        </div>
-        <button class="loadMore" @click='loadMoreBtn' v-show='loadBtn'>点击加载更多</button>
+            <div class="more">
+               <div class="user">
+                 <img v-lazy="item.thumbnail_pic_s" class="avatar" :src="item.thumbnail_pic_s" alt="">
+                 <span class="autor">
+                  {{item.author_name}}
+                </span>
+               </div>
+
+              <span class="date">
+                  {{Math.ceil(500 * Math.random())}}跟贴
+                </span>
+            </div>
+          </div>
+        </router-link>
       </div>
-      <div class="fail" v-else>~~~~(>_<)~~~~， 请求到数据失败!</div>
     </section>
   </div>
 </template>
 
 <script>
   import {swiper,swiperSlide } from 'vue-awesome-swiper'
+  import {mapState,mapActions} from 'vuex'
+  import loading from './Loading.vue'
   export default {
     name:'newslist',
     data(){
@@ -58,13 +74,26 @@
         }
     },
     computed:{
-      swiper() {
-        return this.$refs.mySwiper.swiper;
-      }
+      ...mapState({
+        newslist:state =>state.newlist.newslist,
+        loading:state => state.common.isLoading
+      })
+
+
+    },
+    created(){
+      this.$store.dispatch('getNewsList');
     },
     components:{
       swiper,
-      swiperSlide
+      swiperSlide,
+      loading
+    },
+    methods:{
+
+      details(url,author){
+
+      }
     }
   }
 </script>
@@ -75,5 +104,97 @@
     height: 150px;
     -webkit-background-size: cover;
     background-size: cover;
+  }
+  .newslist .news{
+    padding: 0 5px;
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+  }
+  .newslist .loading-box{
+    margin:0.266525rem auto;
+    text-align:center;
+  }
+  .newslist .loading-box div{
+    margin: auto;
+  }
+  .newslist .news .new{
+    width: 100%;
+    display: flex;
+    flex-direction:column;
+    border-bottom: 1px solid #BEBEBE;
+    color: #262627;
+    margin-top:10px;
+  }
+  .newslist .news .new .title{
+    flex: 2;
+    font-weight: bold;
+    font-size:14px;
+    padding-bottom:10px;
+    padding-left: 5px;
+  }
+  .newslist .news .new .pic{
+    flex: 3;
+    display: flex;
+    flex-direction:row;
+  }
+  .newslist .news .new .pic img{
+    flex: 1;
+    width: 32.5%;
+    height: 80px;
+    padding-left:1px;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  .newslist .news .new .pic img:last-child{
+    padding-left:0px;
+  }
+  .newslist .news .new .more{
+    flex: 1;
+    display: flex;
+    flex-direction:row;
+    justify-content: space-between;
+    padding:10px 4px;
+  }
+  .newslist .news .new .more .user{
+    display: flex;
+  }
+  .newslist .news .new .more .user .avatar{
+    width: 30px;
+    height: 30px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+  }
+  .newslist .news .new .more .user span{
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    padding-left: 5px;
+    font-size:13px;
+    color: grey;
+  }
+  .newslist .news .new .more span{
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    padding-left: 5px;
+    font-size:13px;
+    color: grey;
+  }
+
+
+
+
+
+
+
+
+
+
+  a {
+    text-decoration: none;
+    color: black;
   }
 </style>
