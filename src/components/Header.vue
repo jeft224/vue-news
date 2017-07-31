@@ -1,8 +1,8 @@
 <template>
   <div class="header" >
     <div class="icon-menu">
-      <i class="icon iconfont icon-caidan" @click="ShowMenu()"></i>
-      <i class="icon iconfont icon-fanhuijiantouxiangqingye" v-if="false"></i>
+      <i class="icon iconfont icon-caidan" @click="ShowMenu()" v-if="menuShowStatus"></i>
+      <i class="icon iconfont icon-fanhuijiantouxiangqingye" @click="back()" v-if="!menuShowStatus"></i>
     </div>
     <router-link to="\hello" class="home-img">
       <img src="../assets/logo.d413616.png" alt="">
@@ -26,7 +26,8 @@
     },
     computed:{
       ...mapGetters({
-        leftNavStatus:'getMenuSlideStatus'
+        leftNavStatus:'getMenuSlideStatus',
+        menuShowStatus:'getMenuShowStatus'
       })
     },
     components:{
@@ -34,7 +35,7 @@
     },
     methods:{
 //      ...mapActions({setHeaderShow:'setHeaderShow'},{setMenuSlide:'setMenuSlide'}),
-      ...mapActions(['setHeaderShow','setMenuSlide']),
+      ...mapActions(['setHeaderShow','setMenuSlide','setShowStatus','setMenuShowStatus']),
       /*显示搜索页面*/
       ShowSearch(){
         this.setHeaderShow(false);
@@ -46,6 +47,11 @@
       /*隐藏左侧菜单*/
       hideMenuSlide(){
         this.setMenuSlide(false);
+      },
+      back(){
+        this.setMenuShowStatus(true);
+        this.setShowStatus(true);
+        this.$router.go(-1)
       }
     }
   }

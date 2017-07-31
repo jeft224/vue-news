@@ -1,5 +1,5 @@
 <template>
-  <div class="nav">
+  <div class="nav" v-show="showHome">
     <ul class="nav-list">
       <li @click="changeTab('top')" :class="{active:tab=='top'}" class="type"><router-link to="\">头条</router-link></li>
       <li @click="changeTab('war')" :class="{active:tab=='war'}" class="type"><router-link to="\">军事</router-link></li>
@@ -27,7 +27,8 @@
     },
     computed:{
         ...mapState({
-            tab:state=>state.newlist.type
+            tab:state=>state.newlist.type,
+            showHome:state => state.common.showHome
       })
     }
   }

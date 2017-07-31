@@ -8,7 +8,9 @@ const state = {
   headerShow:true,
   isGoTop:true,
   isLoading:false,
-  leftNavStatus:false
+  leftNavStatus:false,
+  showHome:true,
+  menuShowStatus:true,
 }
 
 
@@ -22,14 +24,21 @@ const actions = {
   setGoTopStatus({commit},status){
     commit(types.COM_GOTOP_STATUS,status)
   },
+  setShowStatus({commit},status){
+    commit(types.COM_SHOW_NEWS,status)
+  },
   setMenuSlide({commit},status){
     commit(types.COM_NAV_STATUS,status)
+  },
+  setMenuShowStatus({commit},status){
+    commit(types.COM_MENUSHOW_STATUS,status)
   }
 }
 const getters = {
   getHeaderShow: state => state.headerShow,
   getMenuSlideStatus:state => state.leftNavStatus,
-  loading: state => state.isLoading
+  loading: state => state.isLoading,
+  getMenuShowStatus:state => state.menuShowStatus
 }
 
 const mutations = {
@@ -45,6 +54,12 @@ const mutations = {
   },
   [types.COM_NAV_STATUS](state,status){
     state.leftNavStatus =status;
+  },
+  [types.COM_SHOW_NEWS](state,status){
+    state.showHome = status
+  },
+  [types.COM_MENUSHOW_STATUS](state,status){
+    state.menuShowStatus = status
   }
 }
 

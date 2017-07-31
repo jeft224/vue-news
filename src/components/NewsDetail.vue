@@ -8,15 +8,21 @@
 </template>
 
 <script>
+  import {mapState,mapActions} from 'vuex'
   export default {
     name:'newsdetail',
     data(){
         return{
-            html:''
+//            html:''
         }
     },
     computed:{
-
+      ...mapState({
+          url:state => state.news.url,
+          like:state => state.news.like,
+          status:state => state.news.status,
+          html:state => state.news.html
+      })
     },
     components:{
 
@@ -27,11 +33,40 @@
       }
     },
     mounted() {
+        console.log(this.$route.params.url);
+        this.$store.dispatch('getNewsDetail',{url:this.$route.params.url});
 
+//      this.axios.get(this.$route.params.url)
+//        .then(data => {
+//          console.log(data);
+//          this.html = data.data
+//        })
     }
   }
 </script>
 
-<style>
-
+<style scoped>
+  .newsdetail {
+    margin-bottom: 48px;
+    overflow: auto;
+  }
+  a {
+    color: black;
+  }
+  .like {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    text-align:right;
+    padding-right: 20px;
+    padding-bottom:10px;
+    border-bottom: 2px solid #808080;
+  }
+  .img-wrap img{
+    height: 100%;
+  }
+  img {
+    width: 30px;
+    height: 30px;
+  }
 </style>

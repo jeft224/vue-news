@@ -1,5 +1,5 @@
 <template>
-  <div class="newslist">
+  <div class="newslist" v-show="showHome">
     <div class="banner">
       <swiper :options="swiperOption" ref="mySwiper">
           <swiper-slide v-for="img in items" >
@@ -51,6 +51,7 @@
     name:'newslist',
     data(){
         return {
+
           items:['http://n.sinaimg.cn/news/1_img/upload/c4b46437/20170708/CIZz-fyhwres8764900.jpg',
               'http://n.sinaimg.cn/photo/20170708/Zj1Y-fyhwres9174784.jpg','http://n.sinaimg.cn/news/20170708/8z25-fyhwres8688399.jpg'],
           swiperOption: {
@@ -76,7 +77,8 @@
     computed:{
       ...mapState({
         newslist:state =>state.newlist.newslist,
-        loading:state => state.common.isLoading
+        loading:state => state.common.isLoading,
+        showHome:state => state.common.showHome
       })
 
 
@@ -90,9 +92,12 @@
       loading
     },
     methods:{
-
+      //...mapActions({setShowStatus:'setShowStatus'},{setMenuShowStatus:'setMenuShowStatus'}),
+      ...mapActions(['setShowStatus','setMenuShowStatus']),
       details(url,author){
-
+        this.$router.push({ name: 'News', params: {url: url }})
+        this.setShowStatus(false)
+        this.setMenuShowStatus(false)
       }
     }
   }

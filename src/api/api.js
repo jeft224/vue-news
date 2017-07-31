@@ -14,6 +14,9 @@ export default  {
   getNewList(type){
     console.log(axios.get(`api/news/${type}`))
     return axios.get(`api/news/${type}`)
+  },
+  getNewsDetail(url){
+    return axios.get(`${url}`)
   }
 };
 

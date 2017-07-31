@@ -18,7 +18,7 @@ export default new Router({
       component: Hello
     },
     {
-      path: '/News',
+      path: '/news',
       name: 'News',
       component: NewsDetail
     }
