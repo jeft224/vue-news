@@ -29,7 +29,7 @@
               </router-link>
             </li>
             <li>
-              <router-link to="/">
+              <router-link to="/about">
                 <span> <i class=" iconfont icon-guanyu"></i>关于</span>
                 <i class="iconfont icon-xiangyoujiantou"></i>
               </router-link>

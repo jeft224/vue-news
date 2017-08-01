@@ -2,11 +2,11 @@
   <div class="nav" v-show="showHome">
     <ul class="nav-list">
       <li @click="changeTab('top')" :class="{active:tab=='top'}" class="type"><router-link to="\">头条</router-link></li>
-      <li @click="changeTab('war')" :class="{active:tab=='war'}" class="type"><router-link to="\">军事</router-link></li>
-      <li @click="changeTab('ent')" :class="{active:tab=='ent'}" class="type"><router-link to="\">娱乐</router-link></li>
-      <li @click="changeTab('travel')" :class="{active:tab=='travel'}" class="type"><router-link to="\">旅游</router-link></li>
-      <li @click="changeTab('edu')" :class="{active:tab=='edu'}" class="type"><router-link to="\">教育</router-link></li>
-      <li @click="changeTab('tech')" :class="{active:tab=='tech'}" class="type"><router-link to="\">科技</router-link></li>
+      <li @click="changeTab('junshi')" :class="{active:tab=='junshi'}" class="type"><router-link to="\">军事</router-link></li>
+      <li @click="changeTab('yule')" :class="{active:tab=='yule'}" class="type"><router-link to="\">娱乐</router-link></li>
+      <li @click="changeTab('caijing')" :class="{active:tab=='caijing'}" class="type"><router-link to="\">财经</router-link></li>
+      <li @click="changeTab('tiyu')" :class="{active:tab=='tiyu'}" class="type"><router-link to="\">体育</router-link></li>
+      <li @click="changeTab('keji')" :class="{active:tab=='keji'}" class="type"><router-link to="\">科技</router-link></li>
     </ul>
   </div>
 </template>

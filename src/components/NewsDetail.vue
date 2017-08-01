@@ -35,12 +35,6 @@
     mounted() {
         console.log(this.$route.params.url);
         this.$store.dispatch('getNewsDetail',{url:this.$route.params.url});
-
-//      this.axios.get(this.$route.params.url)
-//        .then(data => {
-//          console.log(data);
-//          this.html = data.data
-//        })
     }
   }
 </script>
