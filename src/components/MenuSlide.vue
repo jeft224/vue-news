@@ -30,7 +30,7 @@
             </li>
             <li>
               <router-link to="/about">
-                <span> <i class=" iconfont icon-guanyu"></i>关于</span>
+                <span @click="showAbout()"> <i class=" iconfont icon-guanyu"></i>关于</span>
                 <i class="iconfont icon-xiangyoujiantou"></i>
               </router-link>
             </li>
@@ -55,6 +55,9 @@
     methods:{
       hideMenuSlide(){
         this.$emit('hideMenuSlide');
+      },
+      showAbout() {
+        this.$store.commit('showAbout', true);
       }
     }
   }
@@ -73,13 +76,13 @@
     top:0rem;
     left:-0.001rem;
     color: #fff;
-    z-index: 999;
+    z-index: 50;
     box-shadow: 0.053333rem 0px 0.053333rem 0.026667rem rgba(0, 0, 0, 0.05);
   }
   .menuSlide .menu{
     height: 100%;
     width: 100%;
-    z-index: 999;
+    z-index: 50;
   }
   .menuSlide .header{
     /*background: #000000;*/

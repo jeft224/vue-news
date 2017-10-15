@@ -4,7 +4,7 @@
       <i class="icon iconfont icon-caidan" @click="ShowMenu()" v-if="menuShowStatus"></i>
       <i class="icon iconfont icon-fanhuijiantouxiangqingye" @click="back()" v-if="!menuShowStatus"></i>
     </div>
-    <router-link to="\hello" class="home-img">
+    <router-link to="/" class="home-img">
       <img src="../assets/logo.d413616.png" alt="">
     </router-link>
     <div class="icon-search">

@@ -11,6 +11,7 @@ const state = {
   leftNavStatus:false,
   showHome:true,
   menuShowStatus:true,
+  isShowAbout:false
 }
 
 
@@ -60,6 +61,9 @@ const mutations = {
   },
   [types.COM_MENUSHOW_STATUS](state,status){
     state.menuShowStatus = status
+  },
+  showAbout(state, flag) {
+    state.isShowAbout = flag;
   }
 }
 

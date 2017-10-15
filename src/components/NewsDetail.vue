@@ -2,7 +2,10 @@
   <div class="newsdetail">
     <div v-html="html"></div>
     <div class="like">
-      <div @click="Switch()"><img :src="url[like]" alt=""></div>{{status}}
+      <div @click="Switch()">
+        <img :src="url[0]" alt="">
+      </div>
+      {{status}}
     </div>
   </div>
 </template>
