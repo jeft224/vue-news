@@ -21,6 +21,7 @@ const actions ={
     api.getNewList(`${state.type}`).then((res) => {
       console.log(res.data.result.data);
       commit(types.COM_LOADING_STATUS,false);
+
       commit(types.COM_NEWLIST,res.data.result.data)
     })
   },

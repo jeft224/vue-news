@@ -1,7 +1,7 @@
 <template>
   <transition name="slide">
   <div v-if="isShowAbout" class="about">
-        <div class="msg">
+    <div class="msg">
           <i class="icon iconfont close" @click="ShowAbout()"></i>
           <div class="title">
             <h1><strong>关于作品</strong></h1>
@@ -28,6 +28,7 @@
             <p class="url"><strong>github：</strong><a href="https://github.com/jeft224" target="_blank">Abert</a></p>
           </div>
         </div>
+    <div class="mask"></div>
   </div>
   </transition>
 </template>
@@ -60,12 +61,17 @@
     transform: translate(-50%, -50%);
     z-index: 60;
     margin-top: 10px;
-    width: 90%;
+    width: 100%;
     height: 600px;
   }
   .about .msg{
-    z-index: 5;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 60;
     height: 100%;
+    width: 90%;
     border-radius: 10px;
     box-shadow: 0 0 22px gray;
     overflow: auto;
@@ -127,6 +133,13 @@
   }
   .url {
     padding-bottom: 10px;
+  }
+  .about .mask{
+    position: absolute;
+    z-index: 11;
+    width: 100%;
+    height: 100%;
+    background: none;
   }
   .slide-enter-active{
     transition: all .4s ease-in-out;

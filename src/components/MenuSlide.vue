@@ -11,14 +11,14 @@
         <div class="navList">
           <ul>
             <li>
-              <router-link to="/">
-                <span> <i class=" iconfont icon-gerenzhuye"></i>个人主页</span>
+              <router-link to="/me">
+                <span @click="showAbout()"> <i class=" iconfont icon-gerenzhuye"></i>个人主页</span>
                 <i class="iconfont icon-xiangyoujiantou"></i>
               </router-link>
             </li>
             <li>
-              <router-link to="/">
-                <span> <i class=" iconfont icon-shoucang"></i>我的收藏</span>
+              <router-link to="/collection">
+                <span @click="showAbout()" > <i class=" iconfont icon-shoucang"></i>我的收藏</span>
                 <i class="iconfont icon-xiangyoujiantou"></i>
               </router-link >
             </li>

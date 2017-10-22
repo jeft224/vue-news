@@ -2,7 +2,7 @@
   <div class="newslist" v-show="showHome">
     <div class="banner">
       <swiper :options="swiperOption" ref="mySwiper">
-          <swiper-slide v-for="img in items" >
+          <swiper-slide v-for="img in items">
             <img :src="img" alt="">
           </swiper-slide>
           <div class="swiper-pagination"  slot="pagination"></div>
@@ -188,16 +188,6 @@
     font-size:13px;
     color: grey;
   }
-
-
-
-
-
-
-
-
-
-
   a {
     text-decoration: none;
     color: black;
