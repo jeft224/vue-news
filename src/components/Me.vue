@@ -24,8 +24,8 @@
             </div>
             <div class="more">
               <h3>其他信息：</h3>
-              <p><i class="icon">&#xe603;</i></p>
-              <p><i class="icon">&#xe6c5;</i></p>
+              <p><i class="icon">&#xe603;</i>掘金</p>
+              <p><i class="icon">&#xe6c5;</i>GitHub</p>
               <p><i class="icon">&#xe610;</i>segmentfault</p>
               <p><i class="icon">&#xe62f;</i>1248824453</p>
               <p><i class="icon">&#xe61b;</i>1248824453@qq.com</p>
@@ -42,15 +42,15 @@
                 <ul>
                   <li>熟悉html css JavaScript(ES6) jQuery</li>
                   <li>Vue Vuex VueRouter(有实战经验，可快速上手)</li>
-                  <li></li>
+                  <li>对react全家桶有所了解</li>
                 </ul>
               </div>
               <div class="server">
                 <p>后端:</p>
                 <ul>
-                  <li>熟悉html css JavaScript(ES6) jQuery</li>
-                  <li>Vue Vuex VueRouter(有实战经验，可快速上手)</li>
-                  <li></li>
+                  <li>了解过node.js(express.js和koa.js框架,联合mongodb、mysql搭过一个自己的博客)</li>
+                  <li>对java和Java框架(spring,springMVC)有所了解</li>
+                  <li>服务端渲染 有过服务端渲染模板的经验(MVC)</li>
                 </ul>
               </div>
             </div>
@@ -61,8 +61,9 @@
               <p>1.vue.js全家桶打造的新闻App</p>
               <ul>
                 <li>
-
+                  Vue全家桶、Scss、axios + Promise处理异步请求、es6、图片懒加载...
                 </li>
+                <li>拆分各种组件,组件复用</li>
               </ul>
 
             </div>
@@ -71,6 +72,8 @@
             <h2>自我描述</h2>
             <div class="bottom">
               <p>热爱前端开发，追求新技术。</p>
+              <p>熟悉vue编程，能进行vue单页面开发</p>
+              <p>同时对后端node.js和java有所涉猎</p>
             </div>
           </div>
         </div>

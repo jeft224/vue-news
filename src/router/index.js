@@ -5,6 +5,7 @@ import NewsDetail from '@/components/NewsDetail'
 import About from '@/components/About'
 import Me from '@/components/Me'
 import Collection from '@/components/Collection'
+import NewsList from '@/components/NewsList'
 
 Vue.use(Router)
 
@@ -12,13 +13,8 @@ export default new Router({
   routes: [
     {
       path:'/',
-      name: 'Hello',
-      component:Hello
-    },
-    {
-      path: '/hello',
-      name: 'Hello',
-      component: Hello
+      name: 'NewsList',
+      component:NewsList
     },
     {
       path: '/news',

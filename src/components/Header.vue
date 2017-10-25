@@ -72,6 +72,9 @@
     height: 0.533049rem;
     cursor: pointer;
   }
+  .header .icon-search:before{
+    content: '';
+  }
   .header .icon-search,.icon-menu{
     margin-right:0.266525rem;
     position: relative;

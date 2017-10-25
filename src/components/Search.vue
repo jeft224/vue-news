@@ -1,7 +1,7 @@
 <template>
   <div class="search">
     <div class="search-box">
-      <router-link :to="{name:'Hello'}" >
+      <router-link to="/" >
         <img src="../assets/logo.d413616.png" alt="">
       </router-link>
       <form @submit.prevent="search(key)" class="search-input">
@@ -83,5 +83,6 @@
   .search .search-box .icon{
     flex: 1;
     color: #fff;
+    margin-left: 6px;
   }
 </style>
