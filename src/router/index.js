@@ -7,6 +7,8 @@ import Me from '@/components/Me'
 import Collection from '@/components/Collection'
 import NewsList from '@/components/NewsList'
 
+import Search from '@/components/Search'
+
 Vue.use(Router)
 
 export default new Router({
@@ -35,6 +37,11 @@ export default new Router({
       path: '/collection',
       name: 'Collection',
       component: Collection
+    },
+    {
+      path: '/search',
+      name: 'search',
+      component: Search
     }
   ]
 })

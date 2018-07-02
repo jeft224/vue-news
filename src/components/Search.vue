@@ -10,7 +10,17 @@
       </form>
       <i class="icon iconfont icon-guanbi1" @click="HideSearch()" ></i>
     </div>
-
+    <div class="news-box" v-for="(item,index) in newslist" :key="index">
+      <div class="new" @click="details(item.url, item.author_name)">
+          <h2 class="title">{{item.title}}</h2>
+          <div class="more">
+             <div class="user">
+                <img v-lazy="item.thumbnail_pic_s" class="avatar" :src="item.thumbnail_pic_s" alt="">
+                <span class="autor">{{item.author_name}}</span>
+             </div>
+          </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -21,12 +31,28 @@
       data(){
           return {
             key:'',
+            newslist:[
+              {
+                title:'众里寻他千百度',
+                author_name:'李白',
+                thumbnail_pic_s:'https://avatars3.githubusercontent.com/u/18079246?s=40&v=4'
+              },
+              {
+                title:'众里寻他千百度',
+                author_name:'李白',
+                thumbnail_pic_s:'https://avatars3.githubusercontent.com/u/18079246?s=40&v=4'
+              }
+            ]
           }
+      },
+      mounted () {
+        
       },
       methods:{
         ...mapActions({setHeaderShow:'setHeaderShow'}),
         HideSearch(){
               this.setHeaderShow(true);
+              this.$router.push({path:'/'})
         },
         search(key){
 
@@ -84,5 +110,64 @@
     flex: 1;
     color: #fff;
     margin-left: 6px;
+  }
+  .search .news-box{
+    padding: 0 8px;
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+  }
+  .search .news-box .new{
+    width: 100%;
+    display: flex;
+    flex-direction:row;
+    border: 1px solid #BEBEBE;
+    border-radius: 6px;
+    color: #262627;
+    margin-top:10px;
+    box-shadow: 1px 1px 3px 0px #BEBEBE;
+  }
+  .search .news-box .new .title{
+    flex: 2;
+    font-weight: bold;
+    font-size:14px;
+    line-height: 50px;
+    height: 50px;
+    padding-left: 10px;
+    text-align: left;
+  }
+  .search .news-box .new .more{
+    flex: 1;
+    display: flex;
+    flex-direction:row;
+    justify-content: space-around;
+    padding: 10px 0px;
+  }
+  .search .news-box .new .more .user{
+    display: flex;
+  }
+  .search .news-box .new .more .user .avatar{
+    width: 30px;
+    height: 30px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+  }
+  .search .news-box .new .more .user span{
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    padding-left: 5px;
+    font-size:13px;
+    color: grey;
+  }
+  .search .news-box .new .more span{
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    padding-left: 5px;
+    font-size:13px;
+    color: grey;
   }
 </style>

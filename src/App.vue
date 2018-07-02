@@ -1,11 +1,9 @@
 <template>
   <div id="app">
-    <!--<img src="./assets/logo.png">-->
     <VHeader v-if = "headerShow"></VHeader>
     <VSearch v-if = "!headerShow"></VSearch>
-    <VNav></VNav>
+    <VNav v-if = "headerShow"></VNav>
     <GoTop></GoTop>
-    <NewsList></NewsList>
     <router-view></router-view>
   </div>
 </template>

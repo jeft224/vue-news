@@ -6,12 +6,12 @@ import router from './router'
 import store from './vuex/store'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import VueLazy from 'vue-lazyload'
+import 'swiper/dist/css/swiper.css'  
 // import axios from 'axios'
-// import VueAxios from 'vue-axios'
+
 
 Vue.use(VueAwesomeSwiper);
 Vue.use(VueLazy);
-// Vue.use(VueAxios,axios);
 
 Vue.config.productionTip = false
 

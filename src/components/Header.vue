@@ -39,6 +39,7 @@
       /*显示搜索页面*/
       ShowSearch(){
         this.setHeaderShow(false);
+        this.$router.push({path:'/'});
       },
       /*显示左侧菜单*/
       ShowMenu(){
