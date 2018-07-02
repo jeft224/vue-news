@@ -4,8 +4,8 @@
       <router-link to="/" >
         <img src="../assets/logo.d413616.png" alt="">
       </router-link>
-      <form @submit.prevent="search(key)" class="search-input">
-        <input v-model='key' type="text" />
+      <form @submit.prevent="search()" class="search-input">
+        <input v-model='key' type="text" @keyup.enter="search()" />
         <i class="icon iconfont icon-sousuo1"></i>
       </form>
       <i class="icon iconfont icon-guanbi1" @click="HideSearch()" ></i>
@@ -54,7 +54,7 @@
               this.setHeaderShow(true);
               this.$router.push({path:'/'})
         },
-        search(key){
+        search(){
 
         }
       }
